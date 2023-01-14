@@ -1,14 +1,6 @@
-pm2 stop "GATEWAY-SERVICE" 
-pm2 stop "SERVICE-1-SERVICE" 
-pm2 stop "SERVICE-2-SERVICE" 
-pm2 stop "SERVICE-3-SERVICE" 
-
-
-pm2 del "GATEWAY-SERVICE" 
-pm2 del "SERVICE-1-SERVICE" 
-pm2 del "SERVICE-2-SERVICE" 
-pm2 del "SERVICE-3-SERVICE" 
-
+<h1>Please follow instruction to run the service</h1>
+<br/>
+<br/>
 
 cd gateway/
 
@@ -31,3 +23,6 @@ cd ..
 cd service3/
 
 pm2 start server.js --name "SERVICE-3-SERVICE" -- start
+
+
+<p>Service is running at port 8080</p>
