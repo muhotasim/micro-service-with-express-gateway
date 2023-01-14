@@ -1,6 +1,8 @@
 <h1>Please follow instruction to run the service</h1>
+<h2>PM2 is required to run the services togather<h2>
 <br/>
 <br/>
+
 
 cd gateway/
 
