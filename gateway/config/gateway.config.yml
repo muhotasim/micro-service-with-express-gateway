@@ -1,0 +1,56 @@
+http:
+  port: 8080
+apiEndpoints:
+  service1:
+    host: localhost
+    paths: ['/service1', '/service1/*']
+  service2:
+    host: localhost
+    paths: ['/service2', '/service2/*']
+  service3:
+    host: localhost
+    paths: ['/service3', '/service3/*']
+serviceEndpoints:
+  service1Endpoint:
+    url: 'http://localhost:3001'
+  service2Endpoint:
+    url: 'http://localhost:3002'
+  service3Endpoint:
+    url: 'http://localhost:3003'
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  service1Pipeline:
+    apiEndpoints:
+      - service1
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: service1Endpoint 
+              changeOrigin: true
+              stripPath: true
+  service2Pipeline:
+    apiEndpoints:
+      - service2
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: service2Endpoint 
+              changeOrigin: true
+              stripPath: true
+  service3Pipeline:
+    apiEndpoints:
+      - service3
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: service3Endpoint 
+              changeOrigin: true
+              stripPath: true
